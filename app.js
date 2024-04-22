@@ -20,9 +20,10 @@ function getMovies() {
         .catch((err) => console.error(err));
 }
 
-const createMovieCard = (imgSrc, title, content) => {
+const createMovieCard = (imgSrc, title, content, id) => {
     const card = document.createElement('div');
     card.classList.add('card');
+    card.id = id;
 
     // imgUrl = baseURl + fileSize + filepath
     //https://image.tmdb.org/t/p/original/qrGtVFxaD8c7et0jUtaYhyTzzPg.jpg
@@ -44,12 +45,18 @@ const createMovieCard = (imgSrc, title, content) => {
     card.appendChild(contentElem);
 
     $cardContainer.appendChild(card);
+
+    card.addEventListener('click', clickCard);
+};
+
+const clickCard = (e) => {
+    alert(e.currentTarget.id);
 };
 
 getMovies().then((movies) => {
     // console.log(movies);
     movies.forEach((movie) => {
         const { backdrop_path: imgSrc, title, overview: content, id } = movie;
-        createMovieCard(imgSrc, title, content);
+        createMovieCard(imgSrc, title, content, id);
     });
 });
