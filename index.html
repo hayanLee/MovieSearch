@@ -5,19 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieSearch</title>
+    <link rel="stylesheet" href="style.css">
     <script src="./app.js" defer></script>
 
-    <style>
-        img {
-            width: 500px;
-        }
-    </style>
 </head>
 
 <body>
-    <header class="header">Movies Search</header>
-    <main class="main">
-    </main>
+    <div class="container">
+        <header class="header">
+            <h1>Movies Search</h1>
+        </header>
+        <main class="main">
+            <form class="searchForm">
+                <input class="searchForm__input" type="text" placeholder="Searching..">
+                <button class="searchForm__btn">Click</button>
+            </form>
+            <div class="cardContainer"></div>
+        </main>
+    </div>
 </body>
 
 </html>

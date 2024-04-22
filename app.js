@@ -1,4 +1,14 @@
-const $main = document.querySelector('.main');
+const $cardContainer = document.querySelector('.cardContainer');
+const $searchForm = document.querySelector('.searchForm');
+const $input = document.querySelector('.searchForm__input');
+const $btn = document.querySelector('.searchForm__btn');
+
+// $searchForm.addEventListener('submit', handleForm);
+// function handleForm(e) {
+//     e.preventDefault();
+//     let text = e.target[0].value;
+//     console.log(text);
+// }
 
 // MockData
 function getMovies() {
@@ -21,7 +31,7 @@ const createMovieCard = (imgSrc, title, content) => {
     img.alt = '영화이미지';
     img.classList.add('movieImg');
 
-    const titleElem = document.createElement('h3');
+    const titleElem = document.createElement('h2');
     titleElem.textContent = title;
     titleElem.classList.add('movieTitle');
 
@@ -33,11 +43,11 @@ const createMovieCard = (imgSrc, title, content) => {
     card.appendChild(titleElem);
     card.appendChild(contentElem);
 
-    $main.appendChild(card);
+    $cardContainer.appendChild(card);
 };
 
 getMovies().then((movies) => {
-    console.log(movies);
+    // console.log(movies);
     movies.forEach((movie) => {
         const { backdrop_path: imgSrc, title, overview: content, id } = movie;
         createMovieCard(imgSrc, title, content);
