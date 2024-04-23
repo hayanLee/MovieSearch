@@ -47,9 +47,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.notingMovie {
-    display: none;
+    width: 100%;
 }
 .searchForm {
     display: flex;

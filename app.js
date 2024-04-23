@@ -5,6 +5,15 @@ const $btn = document.querySelector('.searchForm__btn');
 const $header = document.querySelector('.header > h1');
 const $uptoBtn = document.querySelector('.uptoBtn');
 
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NWNmOGYwMTA4YjcwODA3NDI0YWVhZjFkMDExMGY2NSIsInN1YiI6IjYyNTdiZjFmZDZkYmJhMDA5OGM0MGFlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ee2ocg2kilfxcTv_uW6jbBUliMHyw6f59mBKiBICEx8',
+    },
+};
+
 document.addEventListener('DOMContentLoaded', () => $input.focus());
 $header.addEventListener('click', () => {
     window.location.reload();
@@ -32,8 +41,21 @@ function handleForm(e) {
 }
 
 // MockData
+// function getMovies() {
+//     return fetch('./popularMovies.json')
+//         .then((response) => response.json())
+//         .then((response) => {
+//             return response.results;
+//         })
+//         .catch((err) => console.error(err));
+// }
+
+// API
 function getMovies() {
-    return fetch('./popularMovies.json')
+    return fetch(
+        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+        options
+    )
         .then((response) => response.json())
         .then((response) => {
             return response.results;
