@@ -2,8 +2,19 @@ const $cardContainer = document.querySelector('.cardContainer');
 const $searchForm = document.querySelector('.searchForm');
 const $input = document.querySelector('.searchForm__input');
 const $btn = document.querySelector('.searchForm__btn');
+const $header = document.querySelector('.header > h1');
+const $uptoBtn = document.querySelector('.uptoBtn');
 
 document.addEventListener('DOMContentLoaded', () => $input.focus());
+$header.addEventListener('click', () => {
+    window.location.reload();
+});
+$uptoBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+});
 
 $searchForm.addEventListener('submit', handleForm);
 function handleForm(e) {

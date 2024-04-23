@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
-:root {
-    --white: #fff;
-}
 * {
     font-family: 'Jersey 15', sans-serif;
     box-sizing: border-box;
@@ -34,19 +31,31 @@ body {
     align-items: center;
 }
 .header > h1 {
-    color: var(--white);
+    color: #fff;
     margin: 50px;
     font-size: 3.5rem;
     letter-spacing: 0.3rem;
     font-weight: bold;
     text-transform: uppercase;
+    cursor: pointer;
+}
+.header > h1:hover {
+    color: plum;
 }
 .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.notingMovie {
+    display: none;
 }
 .searchForm {
     display: flex;
     justify-content: center;
     margin-bottom: 1.2rem;
+    width: 60%;
 }
 .searchForm__input,
 .searchForm__btn {
@@ -57,10 +66,19 @@ body {
 .searchForm__input {
     border-top-left-radius: 1.2rem;
     border-bottom-left-radius: 1.2rem;
+    flex: 1;
+}
+.searchForm__input:focus-visible {
+    outline-color: plum;
 }
 .searchForm__btn {
     border-top-right-radius: 1.2rem;
     border-bottom-right-radius: 1.2rem;
+    width: 20%;
+    background-color: plum;
+}
+.searchForm__btn:hover {
+    filter: brightness(125%);
 }
 
 /* card */
@@ -84,4 +102,20 @@ body {
 }
 .movieContent {
     font-size: 1.2rem;
+}
+
+.uptoBtn {
+    position: fixed;
+    border-radius: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: plum;
+    right: 3%;
+    bottom: 3%;
+}
+.uptoBtn:hover {
+    filter: brightness(125%);
 }
