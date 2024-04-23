@@ -3,6 +3,8 @@ const $searchForm = document.querySelector('.searchForm');
 const $input = document.querySelector('.searchForm__input');
 const $btn = document.querySelector('.searchForm__btn');
 
+document.addEventListener('DOMContentLoaded', () => $input.focus());
+
 $searchForm.addEventListener('submit', handleForm);
 function handleForm(e) {
     e.preventDefault();
