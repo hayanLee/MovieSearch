@@ -1,6 +1,6 @@
 # 영화 검색 사이트 (Movie Search)
 
-https://movie-search-erjkbn4zc-leehayans-projects.vercel.app/
+https://movie-search-navy-seven.vercel.app
 
 ## 요구사항
 
