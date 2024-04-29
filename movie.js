@@ -35,15 +35,9 @@ export function getMovies() {
 //         .then((movies) => {
 //             movies.forEach((movie) => {
 //                 // console.log(movie);
-//                 const {
-//                     backdrop_path: imgSrc,
-//                     title,
-//                     overview: content,
-//                     id,
-//                     vote_average,
-//                 } = movie;
+//                 const { backdrop_path: imgSrc, title, overview: content, id } = movie;
 
-//                 createMovieCard(imgSrc, title, content, id, vote_average);
+//                 createMovieCard(imgSrc, title, content, id);
 //             });
 //         })
 //         .catch((err) => console.error(err));
