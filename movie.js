@@ -11,20 +11,37 @@ const options = {
 };
 
 // API
-export function getMovies() {
-    return fetch(
-        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
-        options
-    )
-        .then((response) => response.json())
-        .then((res) => res.results)
-        .then((movies) => {
-            movies.forEach((movie) => {
-                const { backdrop_path: imgSrc, title, overview: content, id } = movie;
-                createMovieCard(imgSrc, title, content, id);
-            });
-        })
-        .catch((err) => console.error(err));
+// export function getMovies() {
+//     return fetch(
+//         'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+//         options
+//     )
+//         .then((response) => response.json())
+//         .then((res) => res.results)
+//         .then((movies) => {
+//             movies.forEach((movie) => {
+//                 const { backdrop_path: imgSrc, title, overview: content, id } = movie;
+//                 createMovieCard(imgSrc, title, content, id);
+//             });
+//         })
+//         .catch((err) => console.error(err));
+// }
+
+export async function getMovies() {
+    try {
+        const res = await fetch(
+            'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+            options
+        );
+        const data = await res.json();
+        const movies = data.results;
+        movies.forEach((movie) => {
+            const { backdrop_path: imgSrc, title, overview: content, id } = movie;
+            createMovieCard(imgSrc, title, content, id);
+        });
+    } catch (e) {
+        console.log(`Error of Fetch Movie Data : `, e);
+    }
 }
 
 // mockData
@@ -41,6 +58,20 @@ export function getMovies() {
 //             });
 //         })
 //         .catch((err) => console.error(err));
+// }
+
+// export async function getMovies() {
+//     try {
+//         const res = await fetch('./assets/popularMovies.json');
+//         const data = await res.json();
+//         const movies = data.results;
+//         movies.forEach((movie) => {
+//             const { backdrop_path: imgSrc, title, overview: content, id } = movie;
+//             createMovieCard(imgSrc, title, content, id);
+//         });
+//     } catch (e) {
+//         console.log(`Error of Fetch Movie Data : `, e);
+//     }
 // }
 
 const createMovieCard = (imgSrc, title, content, id) => {
