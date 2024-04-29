@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+:root,
 * {
     font-family: 'Jersey 15', sans-serif;
     box-sizing: border-box;
 }
+:root {
+    --main-color: plum;
+    --accent-color: purple;
+    --white: #fff;
+}
 body {
     /* width: 100dvw;
     height: 100dvh; */
-    background-image: url(background.jpg);
+    background-image: url('../assets/background.jpg');
     background-size: cover;
     /* background: rgb(58, 56, 105);
     background: linear-gradient(
@@ -31,7 +37,7 @@ body {
     align-items: center;
 }
 .header > h1 {
-    color: #fff;
+    color: var(--white);
     margin: 50px;
     font-size: 3.5rem;
     letter-spacing: 0.3rem;
@@ -40,7 +46,7 @@ body {
     cursor: pointer;
 }
 .header > h1:hover {
-    color: plum;
+    color: var(--main-color);
 }
 .main {
     display: flex;
@@ -57,7 +63,7 @@ body {
 }
 .searchForm__input,
 .searchForm__btn {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 15px;
     border: none;
 }
@@ -67,13 +73,13 @@ body {
     flex: 1;
 }
 .searchForm__input:focus-visible {
-    outline-color: plum;
+    outline-color: var(--main-color);
 }
 .searchForm__btn {
     border-top-right-radius: 1.2rem;
     border-bottom-right-radius: 1.2rem;
     width: 20%;
-    background-color: plum;
+    background-color: var(--main-color);
 }
 .searchForm__btn:hover {
     filter: brightness(125%);
@@ -84,25 +90,33 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 0.8rem;
 }
 .card {
     background-color: aliceblue;
-    width: 40%;
+    width: 30%;
     margin: 1rem;
-    padding: 0.6rem;
+    padding: 1rem;
+    box-shadow: 10px 9px 20px -1px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: 10px 9px 20px -1px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: 10px 9px 20px -1px rgba(0, 0, 0, 0.51);
 }
 .movieImg {
-    margin: 0 20pz;
+    /* margin: 0 20px; */
     width: 100%;
 }
 .movieTitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin: 1rem 0;
+    text-shadow: 1px 1px 2px var(--main-color);
 }
 .movieContent {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    text-overflow: ellipsis;
 }
 
 .uptoBtn {
+    /* fixed는 viewport 기준 이동 */
     position: fixed;
     border-radius: 100%;
     padding: 1rem;
@@ -110,7 +124,7 @@ body {
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: plum;
+    background-color: var(--main-color);
     right: 3%;
     bottom: 3%;
 }
