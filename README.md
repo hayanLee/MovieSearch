@@ -1,7 +1,5 @@
 # 영화 검색 사이트 (Movie Search)
 
-https://movie-search-g7ukoy7kv-leehayans-projects.vercel.app/
-
 ## 요구사항
 
 ### 필수 요구사항
